@@ -80,7 +80,6 @@ public  class SendReceive {
 				String msg=c.receiveMessage(r.getUser());
 				
 				if(msg!=null && !msg.equals("")){
-					
 					inter.getMessage(msg, r.getUser());
 				}
     		}
@@ -244,10 +243,8 @@ public  class SendReceive {
 	
 	
 	public String getName(){return myname;}
-	//public boolean checkState(){return send;}
 	public synchronized void checkConnection() throws InterruptedException{
 		while(!connected){
-			//inter=new Interface(s);
 			createAuthentication();
 			wait();
 			

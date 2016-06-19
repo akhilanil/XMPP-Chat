@@ -248,6 +248,8 @@ public class Interface {
 		boolean available=false;
 		
 		System.out.println("Message1: "+msg);
+		System.out.println("Name: "+name+"\talive: "+isAlive);
+		
 		if(isAlive.equals(name)){// display incoming message.. 
 			System.out.println("IAM ALIVE: "+msg);
 			try{cb.display(false, false,msg);}catch(Exception e){e.printStackTrace();}

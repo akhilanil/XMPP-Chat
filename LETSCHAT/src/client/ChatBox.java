@@ -103,7 +103,6 @@ private class Values extends JLabel{
 	public void extract(String [] msgs)throws XMPPException{//displays unread messages if any
 		
 		for(int i=0; i<msgs.length; i++){
-			//System.out.println(msgs[i]);
 			display(false,false,msgs[i]);
 		}
 		
@@ -187,7 +186,6 @@ private class Values extends JLabel{
 
 			public void actionPerformed(ActionEvent e) {
 				if(type.getText().trim().length()!=0){
-					System.out.println(name+"\n"+type.getText());
 					s.storeMessage(name,type.getText(),true);
 					try {display(true,true,type.getText());} catch (XMPPException e1) {e1.printStackTrace();}
 					state=true;
@@ -256,9 +254,7 @@ private class Values extends JLabel{
 			type.setText("");
 		}
 		vertical = jschats.getVerticalScrollBar();
-		System.out.println(vertical.getMaximum());
 		vertical.setValue(vertical.getMaximum()*10);
-		System.out.println(chats.getLocation());
 	}	
 	
 	 

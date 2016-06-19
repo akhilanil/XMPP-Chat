@@ -69,15 +69,13 @@ public class Storage {
 	
 	public String[] extractFile(String name) {//extracts unread messages and store to main messages
 		
-		String tosend[]=new String[20];
+		String tosend[]=new String[100];
 		int i=0;
 		String path;
 		path=location+"/"+name;
-		System.out.println(path);
 		try{
 			File f=new File(path+"/unread.txt");
 			FileInputStream in= new FileInputStream(path+"/unread.txt");
-			//FileOutputStream out = new FileOutputStream(path+"/message.txt",new Boolean(true));
 		    BufferedReader br= new BufferedReader(new InputStreamReader(in));
 		    PrintWriter outFile = new PrintWriter(new FileWriter(path+"/message.txt",true));
 		    String msg;
@@ -85,7 +83,6 @@ public class Storage {
 				
 				tosend[i]=msg;
 				outFile.println(new String("#R: "+msg));
-				System.out.println("MESSAGE= "+tosend[i]);
 				i++;
 			}
 			i=0;

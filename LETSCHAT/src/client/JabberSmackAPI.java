@@ -41,7 +41,9 @@ public class JabberSmackAPI implements MessageListener{
 		public void processMessage(Chat chat, Message message) {
 				received=message.getBody();
 			}});
-    	
+    	if(received!=null && !received.equals("")){
+			System.out.println("Received: "+received);
+    	}
     	return received;
    
     	
@@ -49,11 +51,6 @@ public class JabberSmackAPI implements MessageListener{
     public Collection<RosterEntry> getBuddyList(){
     	Roster roster = connection.getRoster();
     	Collection<RosterEntry> entries = roster.getEntries();
-/*    	System.out.println("\n\n" + entries.size() + " buddy(ies):");
-    	for(RosterEntry r:entries){
-    		
-    		System.out.println(r.getUser());
-    	}*/
     	
     	return entries;
     }
