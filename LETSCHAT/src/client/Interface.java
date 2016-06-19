@@ -225,27 +225,7 @@ public class Interface {
 	}
 	
 	
-	/*public void getIP_port(int row){//get ip from hash map
-		
-		InetAddress ip=null;
-		 for (Map.Entry<Integer, List<String>> entry : map.entrySet()) {
-	            int key = entry.getKey();
-	            List<String> values = entry.getValue();
-	            if(key==row){
-	            	try {
-	            		sendip=InetAddress.getByName(values.get(0));
-						sendport=Integer.parseInt((values.get(1)));
-						break;
-					} catch (UnknownHostException e) {
-						e.printStackTrace();
-					}
-	            }
-	            
-	        }
-		
-		
-	}*/
-	
+
 	public boolean checkTable(String name){
 
 		boolean available=false;
@@ -266,8 +246,7 @@ public class Interface {
 		Object value;
 		int unread=0;
 		boolean available=false;
-		//System.out.println("ToCheck: "+isAliveip+"\t"+ip);
-		//if(isAliveip.equals(ip)){
+		
 		System.out.println("Message1: "+msg);
 		if(isAlive.equals(name)){// display incoming message.. 
 			System.out.println("IAM ALIVE: "+msg);
