@@ -80,7 +80,7 @@ public  class SendReceive {
 				String msg=c.receiveMessage(r.getUser());
 				
 				if(msg!=null && !msg.equals("")){
-					System.out.println("Message1: "+msg);
+					
 					inter.getMessage(msg, r.getUser());
 				}
     		}

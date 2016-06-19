@@ -34,14 +34,12 @@ public class JabberSmackAPI implements MessageListener{
     }
     public String receiveMessage(String toSend)throws XMPPException{
     	
-    	//ChatManager chatmanager = ChatManager.getInstanceFor(connection);
     	received=null;
     	ChatManager chatmanager=connection.getChatManager();
     	Chat chat=chatmanager.createChat(toSend, new MessageListener(){
 
 		public void processMessage(Chat chat, Message message) {
 				received=message.getBody();
-				System.out.println("Message: "+received);
 			}});
     	
     	return received;
@@ -62,7 +60,7 @@ public class JabberSmackAPI implements MessageListener{
  
     public void disconnect()
     {
-    connection.disconnect();
+    	connection.disconnect();
     }
  
     public void processMessage(Chat chat, Message message)
@@ -70,7 +68,8 @@ public class JabberSmackAPI implements MessageListener{
     if(message.getType() == Message.Type.chat)
     System.out.println(chat.getParticipant() + " says: " + message.getBody());
     }
- 
+
+	
    /* public static void main(String args[]) throws XMPPException, IOException
     {
     // declare variables

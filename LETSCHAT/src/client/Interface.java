@@ -48,7 +48,7 @@ public class Interface {
 	int sendport;
 	Storage s;
 	SendReceive sr;
-	String isAliveip="";
+	String isAlive="";
 	ChatBox cb;
 	String myName;
 	JabberSmackAPI c;
@@ -203,6 +203,7 @@ public class Interface {
 							}
 						}
 					}
+					isAlive=talkTo;
 					cb=new ChatBox(talkTo,unread,sr,c,s);
 					//cb=new ChatBox(t,sendip,sendport,sr,unread,s,i);
 				}
@@ -267,8 +268,8 @@ public class Interface {
 		boolean available=false;
 		//System.out.println("ToCheck: "+isAliveip+"\t"+ip);
 		//if(isAliveip.equals(ip)){
-		
-		if(isAliveip.equals(name)){// display incoming message.. 
+		System.out.println("Message1: "+msg);
+		if(isAlive.equals(name)){// display incoming message.. 
 			System.out.println("IAM ALIVE: "+msg);
 			try{cb.display(false, false,msg);}catch(Exception e){e.printStackTrace();}
 			s.storeMessage(name, msg, false);
