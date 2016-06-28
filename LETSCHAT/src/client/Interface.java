@@ -52,11 +52,13 @@ public class Interface {
 	ChatBox cb;
 	String myName;
 	JabberSmackAPI c;
+	Interface i;
 	
 	Interface(Storage s,SendReceive sr, JabberSmackAPI c){
 		this.s=s;
 		this.sr=sr;
 		this.c=c;
+		i=this;
 		
 		frame= new JFrame("Client");
 		frame.setVisible(true);
@@ -146,7 +148,7 @@ public class Interface {
 					String name=(String) target.getValueAt(target.getSelectedRow(), 0);
 					int unread= (Integer) target.getValueAt(target.getSelectedRow(), 1);
 					target.setValueAt((Integer) 0, target.getSelectedRow(), 1);
-					cb=new ChatBox(name,unread,sr,c,s);
+					cb=new ChatBox(name,unread,sr,c,s,i);
 					
 				}
 				
@@ -204,7 +206,7 @@ public class Interface {
 						}
 					}
 					isAlive=talkTo;
-					cb=new ChatBox(talkTo,unread,sr,c,s);
+					cb=new ChatBox(talkTo,unread,sr,c,s,i);
 					//cb=new ChatBox(t,sendip,sendport,sr,unread,s,i);
 				}
 				

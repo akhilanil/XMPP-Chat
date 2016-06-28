@@ -11,6 +11,8 @@ import org.jivesoftware.smack.RosterEntry;
 import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.XMPPException;
 import org.jivesoftware.smack.packet.Message;
+import org.jivesoftware.smack.packet.Presence;
+import org.jivesoftware.smack.packet.Presence.Mode;
  
 public class JabberSmackAPI implements MessageListener{
  
@@ -24,6 +26,11 @@ public class JabberSmackAPI implements MessageListener{
     connection.connect();
     System.out.println("Username: "+userName+"\tPassword: "+password);
     connection.login(userName, password);
+    Roster roster = connection.getRoster();
+    roster.setSubscriptionMode(Roster.SubscriptionMode.accept_all);
+    
+    Presence p = new Presence(Presence.Type.available, "Always available", 42, Mode.available);
+    connection.sendPacket(p);
     }
  
     public void sendMessage(String message, String to) throws XMPPException{
@@ -51,8 +58,15 @@ public class JabberSmackAPI implements MessageListener{
     public Collection<RosterEntry> getBuddyList(){
     	Roster roster = connection.getRoster();
     	Collection<RosterEntry> entries = roster.getEntries();
-    	
+    	//Roster.setDefaultSubscriptionMode(Roster.SubscriptionMode.accept_all);
     	return entries;
+    	
+    	
+    	
+    	
+    	/*Presence presence = new Presence(Presence.Type.subscribe);
+        presence.setTo(jid);
+        connection.sendPacket(presence);*/
     }
  
     public void disconnect()

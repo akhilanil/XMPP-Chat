@@ -56,7 +56,7 @@ private class Values extends JLabel{
 
 	
 
-	ChatBox(String name, int unread, SendReceive sr, JabberSmackAPI c,Storage s){
+	ChatBox(String name, int unread, SendReceive sr, JabberSmackAPI c,Storage s,Interface i){
 		
 		this.name=name;
 		this.sr=sr;
@@ -95,6 +95,15 @@ private class Values extends JLabel{
 			this.toread=s.extractFile(this.name);
 			try {extract(this.toread);} catch (XMPPException e) {e.printStackTrace();}
 		}
+		
+		
+		frame.addWindowListener(new WindowAdapter(){
+			
+			public void windowClosing(WindowEvent e) {
+				i.isAlive="";
+			}
+			
+		});
 		
 		
 		
